@@ -24,8 +24,7 @@ def render_report(results: dict) -> str:
     lines = [
         "# PolicyLoRA eval report",
         "",
-        "Rules-only numbers below were measured by running the deterministic engine on the curator gold set.",
-        "PolicyLoRA, the untuned base model, frontier quality, GPU latency, and cost stay unmeasured until a GPU run writes a prediction cache.",
+        "Rules engine on the gold set. Model, frontier, GPU latency, and cost are unmeasured until a prediction cache is present.",
         "",
         f"- Fingerprint: `{results['fingerprint']}`",
         f"- Suite wall clock (seconds): {_fmt(results['suite_wall_clock_s'])}",
@@ -52,14 +51,12 @@ def render_report(results: dict) -> str:
     lines.extend(
         [
             "",
-            "## Model slots",
+            "## Unmeasured",
             "",
             f"- Untuned base: {results['baselines']['untuned_base']['status']}",
             f"- PolicyLoRA: {results['baselines']['policylora']['status']}",
             f"- Frontier: {results['baselines']['frontier']['status']}",
             f"- Cost per 1k: {results['cost']['status']}",
-            "",
-            "Cost method when measured: SLM rental dollars per hour divided by measured messages per hour, times 1,000. Frontier published token price times measured tokens, times 1,000. Detection p95 is reported both as model time and as end-to-end time.",
             "",
         ]
     )

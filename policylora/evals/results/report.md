@@ -1,10 +1,9 @@
 # PolicyLoRA eval report
 
-Rules-only numbers below were measured by running the deterministic engine on the curator gold set.
-PolicyLoRA, the untuned base model, frontier quality, GPU latency, and cost stay unmeasured until a GPU run writes a prediction cache.
+Rules engine on the gold set. Model, frontier, GPU latency, and cost are unmeasured until a prediction cache is present.
 
 - Fingerprint: `029eb8b514cd80141b01926256f126b3f883f7300082331fd2018b306e79ff1e`
-- Suite wall clock (seconds): 0.013
+- Suite wall clock (seconds): 0.012
 - Gold rows: 232
 - OOD rows: 24
 - Tenant-eval rows: 24
@@ -30,11 +29,9 @@ PolicyLoRA, the untuned base model, frontier quality, GPU latency, and cost stay
 | promissory_claim | 53 | 1.000 | 0.906 |
 | unbalanced_presentation | 16 | 1.000 | 0.750 |
 
-## Model slots
+## Unmeasured
 
 - Untuned base: not_measured
 - PolicyLoRA: not_measured
 - Frontier: not_measured
 - Cost per 1k: not_measured
-
-Cost method when measured: SLM rental dollars per hour divided by measured messages per hour, times 1,000. Frontier published token price times measured tokens, times 1,000. Detection p95 is reported both as model time and as end-to-end time.

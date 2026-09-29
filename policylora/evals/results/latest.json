@@ -1,6 +1,6 @@
 {
   "fingerprint": "029eb8b514cd80141b01926256f126b3f883f7300082331fd2018b306e79ff1e",
-  "suite_wall_clock_s": 0.013,
+  "suite_wall_clock_s": 0.012,
   "counts": {
     "gold": 232,
     "ood": 24,
@@ -58,8 +58,8 @@
       "obvious_violation_recall": 1.0,
       "hard_negative_fpr": 0.0,
       "span_accuracy": 1.0,
-      "latency_p50_ms": 0.021187500351516064,
-      "latency_p95_ms": 0.03374634989086189,
+      "latency_p50_ms": 0.021374499738158192,
+      "latency_p95_ms": 0.03417295110921259,
       "n": 232,
       "tenant_policy_accuracy": 0.5416666666666666,
       "ood": {
@@ -113,8 +113,8 @@
         "obvious_violation_recall": null,
         "hard_negative_fpr": null,
         "span_accuracy": null,
-        "latency_p50_ms": 0.018103999536833726,
-        "latency_p95_ms": 0.026412400256958776,
+        "latency_p50_ms": 0.018228999579150695,
+        "latency_p95_ms": 0.02170269999623997,
         "n": 24
       }
     },

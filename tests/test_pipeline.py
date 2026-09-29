@@ -117,9 +117,6 @@ def test_low_confidence_recheck_escalates(tmp_path: Path):
             explanation="promise",
         )
 
-    # The original is a rules hit, so the first verdict is rewrite.
-    # The rewrite is the word CLEAN, which the scripted model flags at low confidence
-    # and the rules engine does not know. That re-check escalates.
     detector = ScriptedDetector(detect, rewrite_text="CLEAN placeholder")
     response = _service(tmp_path, detector).enforce(_request("The fund is guaranteed to return 8% a year."))
     assert response.verdict.value == "escalate"

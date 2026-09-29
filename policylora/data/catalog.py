@@ -1,8 +1,4 @@
-"""Curator-authored gold, OOD, tenant-eval, and synthetic train rows.
-
-Gold and OOD are written by hand in this module and never enter the train file.
-Train rows use different frames. Labels on gold are the curator's, not a frontier model's.
-"""
+"""Gold, OOD, tenant-eval, and synthetic train rows."""
 
 from __future__ import annotations
 
@@ -296,7 +292,6 @@ def build_tenant_eval() -> list[dict]:
 
 
 def _first_span(text: str) -> str:
-    """Span used for tenant violations: a distinctive slice that sits inside the text."""
     for needle in (
         "returned 11%",
         "up 8%",
@@ -351,11 +346,6 @@ def _tenant_row(
 
 
 def build_ood() -> list[dict]:
-    """Held-out rows grounded in public rule text and public AWC themes.
-
-    AWC lines are curator paraphrases of public enforcement themes, not verbatim
-    reproductions of the PDFs. URLs point at the public documents.
-    """
     awc = "https://www.finra.org/sites/default/files/2025-03/robinhood-AWC-030725.pdf"
     rule = "https://www.finra.org/rules-guidance/rulebooks/finra-rules/2210"
     items = [

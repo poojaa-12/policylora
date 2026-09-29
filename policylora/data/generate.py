@@ -110,8 +110,6 @@ def check() -> None:
         ids.extend(row["id"] for row in read_jsonl(path))
     if len(ids) != len(set(ids)):
         raise SystemExit("duplicate holdout ids")
-    expected = hashlib.sha256()
-    # Manifest is a file hash, not the combined fingerprint.
     recorded = MANIFEST.read_text().strip().splitlines()
     if len(recorded) != len(HOLDOUT_PATHS):
         raise SystemExit("manifest does not list every holdout")
@@ -128,11 +126,9 @@ def check() -> None:
             assert_trainable(read_jsonl(train_path), blocked)
         except LeakageError as exc:
             raise SystemExit(str(exc)) from exc
-    del expected
 
 
 def route_disagreement(row: dict, rules: RulesEngine) -> str:
-    """Second opinion from the rules engine. Reviewed curator rows stay in train."""
     if row.get("reviewed"):
         return "keep"
     outcome = rules.evaluate(row["message"])

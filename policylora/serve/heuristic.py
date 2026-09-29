@@ -1,8 +1,4 @@
-"""Deterministic tenant policies used only by DETECTOR=mock.
-
-These heuristics let a laptop exercise a tenant swap before a GPU adapter exists.
-They are not the LoRA, and the eval report does not score them as one.
-"""
+"""Tenant policy checks for DETECTOR=mock."""
 
 from __future__ import annotations
 
