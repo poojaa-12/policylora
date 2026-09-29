@@ -1,0 +1,37 @@
+name: eval-gate
+
+on:
+  pull_request:
+    paths:
+      - "policylora/data/**"
+      - "policylora/train/**"
+      - "policylora/serve/adapters/**"
+      - "policylora/evals/**"
+      - "policylora/ci/**"
+      - "tests/**"
+  workflow_dispatch:
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install
+        run: pip install -e ".[dev]"
+      - name: Check holdout integrity
+        run: python -m policylora.data.generate --check
+      - name: Unit tests
+        run: python -m pytest
+      - name: Eval gate
+        run: python -m policylora.ci.eval_gate
+
+  gpu-eval:
+    if: github.event_name == 'workflow_dispatch' && vars.GPU_RUNNER == 'true'
+    runs-on: [self-hosted, gpu]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Refresh the prediction cache on a GPU runner
+        run: python -m policylora.evals.harness

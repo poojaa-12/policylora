@@ -1,0 +1,45 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      DETECTOR: ${DETECTOR:-mock}
+      VLLM_BASE_URL: http://vllm:8000/v1
+      DETECTOR_TIMEOUT_S: ${DETECTOR_TIMEOUT_S:-2}
+      AUDIT_DB: /data/audit.db
+    volumes:
+      - audit:/data
+
+  vllm:
+    profiles: ["gpu"]
+    image: vllm/vllm-openai:latest
+    ports:
+      - "8001:8000"
+    volumes:
+      - ./artifacts/adapters:/adapters
+    command:
+      - --model
+      - Qwen/Qwen2.5-1.5B-Instruct
+      - --enable-lora
+      - --max-loras
+      - "4"
+      - --max-lora-rank
+      - "16"
+      - --max-cpu-loras
+      - "4"
+      - --max-num-seqs
+      - "64"
+      - --lora-modules
+      - base-v0=/adapters/shared/v0
+      - northline-v0=/adapters/northline/v0
+      - harbor-v0=/adapters/harbor/v0
+      - cedar-v0=/adapters/cedar/v0
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: ["gpu"]
+
+volumes:
+  audit:

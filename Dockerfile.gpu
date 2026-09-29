@@ -1,0 +1,10 @@
+# CUDA image for adapter training on a 24GB-class GPU.
+# Serving the base model with multi-LoRA is the vLLM service in docker-compose.yml.
+FROM pytorch/pytorch:2.4.0-cuda12.4-cudnn9-runtime
+
+WORKDIR /app
+COPY pyproject.toml README.md ./
+COPY policylora ./policylora
+RUN pip install --no-cache-dir -e ".[train,data]"
+
+CMD ["python", "-m", "policylora.train.sft", "--config", "policylora/train/configs/shared.yaml"]

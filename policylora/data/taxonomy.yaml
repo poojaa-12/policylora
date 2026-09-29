@@ -1,0 +1,32 @@
+rulepack: financial_services_client_communications
+categories:
+  - id: promissory_claim
+    rule: "FINRA 2210(d)(1)(B)"
+    definition: "A statement that promises or guarantees a future investment result."
+  - id: exaggerated_unwarranted
+    rule: "FINRA 2210(d)(1)(B)"
+    definition: "A claim that overstates safety, certainty, or the size of a benefit."
+  - id: false_or_misleading
+    rule: "FINRA 2210(d)(1)(B)"
+    definition: "A statement that is untrue or misleading in the context where it appears."
+  - id: material_omission
+    rule: "FINRA 2210(d)(1)(A)"
+    definition: "The message leaves out a fact that, in context, makes the rest misleading."
+  - id: unbalanced_presentation
+    rule: "FINRA 2210(d)(1)(D)"
+    definition: "Benefits are presented without a balanced treatment of risks."
+  - id: performance_claim_without_basis
+    rule: "FINRA 2210(d)"
+    definition: "A performance or projection claim without the period, basis, or limits a reader needs."
+  - id: misleading_comparison
+    rule: "FINRA 2210(d)"
+    definition: "A comparison that hides the period, the benchmark, or why the two items differ."
+  - id: options_risk_minimized
+    rule: "FINRA 2220"
+    definition: "Options are described with a broad generality that plays down their risk."
+  - id: options_without_risk_disclosure
+    rule: "FINRA 2220"
+    definition: "An options trade is discussed without stating that the client can lose more than they invest."
+  - id: compliant
+    rule: null
+    definition: "The message gives a sound basis for evaluation and does not promise results."

@@ -1,0 +1,23 @@
+model_name: Qwen/Qwen2.5-1.5B-Instruct
+adapter_name: shared-rank32
+seed: 2210
+epochs: 1
+batch_size: 4
+learning_rate: 0.0002
+max_seq_length: 512
+output_dir: artifacts/adapters/shared-rank32/v0
+lora:
+  r: 32
+  alpha: 64
+  dropout: 0.05
+  target_modules: [q_proj, k_proj, v_proj, o_proj]
+data:
+  train_path: policylora/data/generated/train.jsonl
+  holdout_paths:
+    - policylora/data/gold/gold.jsonl
+    - policylora/data/ood/ood.jsonl
+    - policylora/data/gold/tenant_eval.jsonl
+  include_hard_negatives: true
+mlflow:
+  experiment: policylora
+  tracking_uri: ./mlruns

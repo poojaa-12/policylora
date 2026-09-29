@@ -1,0 +1,18 @@
+status: pending_first_gpu_run
+rules:
+  required: true
+  min_obvious_violation_recall: 0.95
+  max_hard_negative_fpr: 0.02
+slm:
+  required: false
+  min_macro_recall: null
+  max_hard_negative_fpr: null
+  recall_margin_vs_frontier: null
+frontier:
+  required: false
+latency:
+  required: false
+  max_detection_p95_ms: null
+cost:
+  required: false
+  min_cost_ratio_vs_frontier: null

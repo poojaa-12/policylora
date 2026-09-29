@@ -1,0 +1,30 @@
+[
+  {
+    "name": "rewrite",
+    "body": "The Harbor Index Fund is a safe way to beat the market.",
+    "tenant_id": "base",
+    "author_type": "ai",
+    "expect": "rewrite"
+  },
+  {
+    "name": "tenant_swap_base",
+    "body": "The Horizon Equity Fund returned 11% last year. Past performance does not guarantee future results.",
+    "tenant_id": "base",
+    "author_type": "ai",
+    "expect": "pass"
+  },
+  {
+    "name": "tenant_swap_northline",
+    "body": "The Horizon Equity Fund returned 11% last year. Past performance does not guarantee future results.",
+    "tenant_id": "northline",
+    "author_type": "ai",
+    "expect": "rewrite"
+  },
+  {
+    "name": "restricted_block",
+    "body": "Yes. The Apex Growth Fund is a safe way to generate strong returns. I recommend moving 25% of your portfolio into the fund this week.",
+    "tenant_id": "base",
+    "author_type": "ai",
+    "expect": "block"
+  }
+]

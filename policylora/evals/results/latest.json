@@ -1,0 +1,135 @@
+{
+  "fingerprint": "029eb8b514cd80141b01926256f126b3f883f7300082331fd2018b306e79ff1e",
+  "suite_wall_clock_s": 0.013,
+  "counts": {
+    "gold": 232,
+    "ood": 24,
+    "tenant_eval": 24
+  },
+  "baselines": {
+    "rules": {
+      "per_category": {
+        "exaggerated_unwarranted": {
+          "support": 16,
+          "precision": 1.0,
+          "recall": 0.75
+        },
+        "false_or_misleading": {
+          "support": 28,
+          "precision": 1.0,
+          "recall": 0.8571428571428571
+        },
+        "material_omission": {
+          "support": 17,
+          "precision": 1.0,
+          "recall": 0.7058823529411765
+        },
+        "misleading_comparison": {
+          "support": 16,
+          "precision": 1.0,
+          "recall": 0.75
+        },
+        "options_risk_minimized": {
+          "support": 16,
+          "precision": 1.0,
+          "recall": 0.75
+        },
+        "options_without_risk_disclosure": {
+          "support": 14,
+          "precision": 1.0,
+          "recall": 0.8571428571428571
+        },
+        "performance_claim_without_basis": {
+          "support": 16,
+          "precision": 1.0,
+          "recall": 0.75
+        },
+        "promissory_claim": {
+          "support": 53,
+          "precision": 1.0,
+          "recall": 0.9056603773584906
+        },
+        "unbalanced_presentation": {
+          "support": 16,
+          "precision": 1.0,
+          "recall": 0.75
+        }
+      },
+      "obvious_violation_recall": 1.0,
+      "hard_negative_fpr": 0.0,
+      "span_accuracy": 1.0,
+      "latency_p50_ms": 0.021187500351516064,
+      "latency_p95_ms": 0.03374634989086189,
+      "n": 232,
+      "tenant_policy_accuracy": 0.5416666666666666,
+      "ood": {
+        "per_category": {
+          "exaggerated_unwarranted": {
+            "support": 2,
+            "precision": null,
+            "recall": 0.0
+          },
+          "false_or_misleading": {
+            "support": 2,
+            "precision": null,
+            "recall": 0.0
+          },
+          "material_omission": {
+            "support": 2,
+            "precision": null,
+            "recall": 0.0
+          },
+          "misleading_comparison": {
+            "support": 1,
+            "precision": null,
+            "recall": 0.0
+          },
+          "options_risk_minimized": {
+            "support": 1,
+            "precision": null,
+            "recall": 0.0
+          },
+          "options_without_risk_disclosure": {
+            "support": 1,
+            "precision": null,
+            "recall": 0.0
+          },
+          "performance_claim_without_basis": {
+            "support": 2,
+            "precision": null,
+            "recall": 0.0
+          },
+          "promissory_claim": {
+            "support": 2,
+            "precision": null,
+            "recall": 0.0
+          },
+          "unbalanced_presentation": {
+            "support": 2,
+            "precision": null,
+            "recall": 0.0
+          }
+        },
+        "obvious_violation_recall": null,
+        "hard_negative_fpr": null,
+        "span_accuracy": null,
+        "latency_p50_ms": 0.018103999536833726,
+        "latency_p95_ms": 0.026412400256958776,
+        "n": 24
+      }
+    },
+    "untuned_base": {
+      "status": "not_measured"
+    },
+    "policylora": {
+      "status": "not_measured"
+    },
+    "frontier": {
+      "status": "not_measured"
+    }
+  },
+  "cost": {
+    "status": "not_measured",
+    "method": "slm hourly rental divided by measured throughput; frontier token price times measured tokens"
+  }
+}

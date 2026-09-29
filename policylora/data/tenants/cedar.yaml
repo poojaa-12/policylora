@@ -1,0 +1,7 @@
+id: cedar
+name: Cedar Credit
+policy: >
+  The words guaranteed, safe, risk-free, and FDIC are violations in brokerage
+  copy, including negated and slogan uses such as "not guaranteed" and
+  "safe harbor." Accurate disclosures that use those words still match.
+when_matched: rewrite for AI-authored text, block for human-authored text

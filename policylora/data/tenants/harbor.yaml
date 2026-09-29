@@ -1,0 +1,7 @@
+id: harbor
+name: Harbor Options
+policy: >
+  Any message that mentions options, calls, or puts must include the sentence
+  "You can lose more than you invest." A generic remark that options are risky
+  does not satisfy the policy.
+when_matched: rewrite for AI-authored text, block for human-authored text

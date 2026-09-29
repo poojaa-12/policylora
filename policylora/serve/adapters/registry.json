@@ -1,0 +1,37 @@
+{
+  "base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "max_lora_rank": 16,
+  "adapters": {
+    "shared": {
+      "active": "v0",
+      "versions": {
+        "v0": "artifacts/adapters/shared/v0"
+      }
+    },
+    "northline": {
+      "active": "v0",
+      "versions": {
+        "v0": "artifacts/adapters/northline/v0",
+        "v-1": "artifacts/adapters/northline/v-1"
+      }
+    },
+    "harbor": {
+      "active": "v0",
+      "versions": {
+        "v0": "artifacts/adapters/harbor/v0"
+      }
+    },
+    "cedar": {
+      "active": "v0",
+      "versions": {
+        "v0": "artifacts/adapters/cedar/v0"
+      }
+    }
+  },
+  "tenants": {
+    "base": "shared",
+    "northline": "northline",
+    "harbor": "harbor",
+    "cedar": "cedar"
+  }
+}

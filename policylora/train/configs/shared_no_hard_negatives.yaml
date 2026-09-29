@@ -1,0 +1,23 @@
+model_name: Qwen/Qwen2.5-1.5B-Instruct
+adapter_name: shared-no-hard-negatives
+seed: 2210
+epochs: 1
+batch_size: 4
+learning_rate: 0.0002
+max_seq_length: 512
+output_dir: artifacts/adapters/shared-no-hard-negatives/v0
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.05
+  target_modules: [q_proj, k_proj, v_proj, o_proj]
+data:
+  train_path: policylora/data/generated/train.jsonl
+  holdout_paths:
+    - policylora/data/gold/gold.jsonl
+    - policylora/data/ood/ood.jsonl
+    - policylora/data/gold/tenant_eval.jsonl
+  include_hard_negatives: false
+mlflow:
+  experiment: policylora
+  tracking_uri: ./mlruns

@@ -1,0 +1,7 @@
+id: base
+name: Base regulatory adapter
+policy: >
+  Enforce FINRA Rule 2210 and Rule 2220 on client communications. Flag promissory,
+  exaggerated, false, unbalanced, and options-risk language. Allow accurate risk
+  disclosures, fee quotes, and historical figures that are labeled and balanced.
+when_matched: rewrite for AI-authored text, block for human-authored text

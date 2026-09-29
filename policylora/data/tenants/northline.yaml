@@ -1,0 +1,7 @@
+id: northline
+name: Northline Wealth
+policy: >
+  Any specific investment return number is a violation, including when a
+  past-performance disclaimer is in the same message. Expense ratios and
+  other fee percentages are allowed. This policy is stricter than FINRA Rule 2210.
+when_matched: rewrite for AI-authored text, block for human-authored text

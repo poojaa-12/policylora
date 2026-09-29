@@ -1,0 +1,16 @@
+axes:
+  channel: [email, chat, social, ad]
+  audience: [retail, institutional]
+  product: [mutual_fund, etf, options, bond, annuity]
+  author_type: [ai, human]
+  subtlety: [obvious, subtle]
+  noise: [clean, disclaimer_footer, extra_chatter]
+reserved_test_cells:
+  - label: promissory_claim
+    channel: social
+    audience: retail
+    product: etf
+    author_type: ai
+    subtlety: subtle
+    noise: clean
+    tenant: base
